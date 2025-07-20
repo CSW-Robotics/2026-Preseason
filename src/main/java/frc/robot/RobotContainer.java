@@ -31,11 +31,9 @@ public class RobotContainer {
 
     /* Setting up bindings for necessary control of the swerve drive platform */
     private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
-            .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.05) // Add a 10% deadband
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage); // Use open-loop control for drive motors
 
     private final RobotCentric r_drive = new SwerveRequest.RobotCentric()
-            .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
             .withDriveRequestType(DriveRequestType.OpenLoopVoltage); // Use open-loop control for drive motors
     
     private final SwerveRequest.SwerveDriveBrake brake = new SwerveRequest.SwerveDriveBrake();
@@ -45,7 +43,7 @@ public class RobotContainer {
 
     private final Telemetry logger = new Telemetry(MaxSpeed);
 
-    private final Joystick joystick = new Joystick(0);
+    private final Joystick joystick = new Joystick(3);
     private final Joystick r_joystick = new Joystick(1);
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
@@ -72,7 +70,7 @@ public class RobotContainer {
             
                 drive.withVelocityX(joystick.getY() * MaxSpeed) // Drive forward with negative Y (forward)
                     .withVelocityY(joystick.getX() * MaxSpeed) // Drive left with negative X (left)
-                    .withRotationalRate(Math.pow(r_joystick.getX(), 2) * MaxAngularRate) // Drive counterclockwise with negative X (left)
+                    .withRotationalRate(r_joystick.getX()*-1) // Drive counterclockwise with negative X (left)
             )
         );
 
@@ -85,6 +83,8 @@ public class RobotContainer {
 
         new JoystickButton(joystick, 5).whileTrue(drivetrain.applyRequest(() -> brake));
 
+
+
         // I have no clue what this does ngl
         // new JoystickButton(joystick,3).whileTrue(drivetrain.applyRequest(() ->
         //     point.withModuleDirection(new Rotation2d(-joystick.getLeftY(), -joystick.getLeftX()))
@@ -92,18 +92,18 @@ public class RobotContainer {
 
         new JoystickButton(joystick,1).whileTrue(drivetrain.applyRequest(() ->
             
-            drive.withVelocityX(joystick.getY() * MaxSpeed) // Drive forward with negative Y (forward)
+            r_drive.withVelocityX(joystick.getY() * MaxSpeed) // Drive forward with negative Y (forward)
                 .withVelocityY(joystick.getX() * MaxSpeed) // Drive left with negative X (left)
-                .withRotationalRate(Math.pow(r_joystick.getX(), 2) * MaxAngularRate) 
+                .withRotationalRate(r_joystick.getX()*-1) // Drive counterclockwise with negative X (left)
         ));
 
-        new JoystickButton(joystick,6).whileTrue(drivetrain.applyRequest(() ->
-            forwardStraight.withVelocityX(0.5).withVelocityY(0))
-        );
+        // new JoystickButton(joystick,6).whileTrue(drivetrain.applyRequest(() ->
+        //     forwardStraight.withVelocityX(0.5).withVelocityY(0))
+        // );
 
-        new JoystickButton(joystick, 4).whileTrue(drivetrain.applyRequest(() ->
-            forwardStraight.withVelocityX(-0.5).withVelocityY(0))
-        );
+        // new JoystickButton(joystick, 4).whileTrue(drivetrain.applyRequest(() ->
+        //     forwardStraight.withVelocityX(-0.5).withVelocityY(0))
+        // );
 
         // Run SysId routines when holding back/start and X/Y.
         // Note that each routine should be run exactly once in a single log.
