@@ -4,7 +4,7 @@
 * `X axis` controls the X translation of the robot
 * `Y axis` controls the Y translation of the robot
 * `Button 5` applies the brake
-* `Button 1` switches the drive mode to robot relative
+* `Button 1` switches the drive mode to robot relative for as long as it is held down
 * `Button 2` Resets the gyro
 
 ### Joystick in port 1 (Other Joystick): ###
