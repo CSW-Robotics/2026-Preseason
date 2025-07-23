@@ -1,20 +1,20 @@
 # Control Layout #
 
 
-### Driver Controls ###
+## Driver Controls ##
 
-Joystick in port 0:
+###Joystick in port 0:###
 * `X axis` controls the X translation of the robot
 * `Y axis` controls the Y translation of the robot
 * `Button 5` applies the brake
 * `Button 1` switches the drive mode to robot relative
 * `Button 2` Resets the gyro
 
-Joystick in port 1:
+###Joystick in port 1:###
 * `X axis` controls the rotation of the robot
 
 
-### Joystick & Controller Button Layout ###
+## Joystick & Controller Button Layout ##
 
 The Logitech Extreme 3d Pro has button numbering on it
 
