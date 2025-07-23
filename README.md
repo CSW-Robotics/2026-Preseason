@@ -1,7 +1,4 @@
-# Control Layout #
-
-
-## Driver Controls ##
+# Control Layout - Driver Controls#
 
 ### Joystick in port 0: ###
 * `X axis` controls the X translation of the robot
