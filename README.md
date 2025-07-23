@@ -17,4 +17,4 @@ The Logitech Extreme 3d Pro has button numbering on it
 
 <img width="765" height="627.791878173" alt="Screenshot 2025-07-23 at 9 33 02 AM" src="https://github.com/user-attachments/assets/9804a68b-6f6d-46fe-bb1f-81149f663f4e" />
 
-<img width="766" height="538" alt="Screenshot 2025-07-23 at 10 11 58 AM" src="https://github.com/user-attachments/assets/453fc3e7-c507-4be0-b838-7876ca1dede2" />
+<img width="765" height="538" alt="Screenshot 2025-07-23 at 10 11 58 AM" src="https://github.com/user-attachments/assets/453fc3e7-c507-4be0-b838-7876ca1dede2" />
