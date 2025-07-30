@@ -22,6 +22,8 @@ import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.RobotModeTriggers;
@@ -58,6 +60,9 @@ public class RobotContainer {
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
+
+    private String robot_state = "Getting Game Piece";
+
     /* Path follower */
     private final SendableChooser<Command> autoChooser;
 
@@ -73,6 +78,14 @@ public class RobotContainer {
         
         autoChooser = AutoBuilder.buildAutoChooser("Tests");
         SmartDashboard.putData("Auto Mode", autoChooser);
+        SmartDashboard.putString("robot_state", robot_state);
+        
+
+        // this adds a button to smart dashboard we could use this so that we could have almost auto cycles
+        // where we just click where game pieces have been placed
+
+        // Add a button to SmartDashboard
+        SmartDashboard.putData("Test Button", new InstantCommand(()->SmartDashboard.putString("robot_state", "Scoring Game Piece" )));
 
         configureBindings();
 
